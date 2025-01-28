@@ -21,7 +21,6 @@ func mergeChannels(channels ...<-chan int) <-chan int {
 		go output(c)
 	}
 
-	// Запускаем горутину для закрытия выходного канала после завершения всех горутин
 	go func() {
 		wg.Wait()
 		close(out)
